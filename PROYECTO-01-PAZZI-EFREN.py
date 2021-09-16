@@ -1545,10 +1545,6 @@ while entrada:
     mini_lista_1 = []
     for i in range(1,16):
         mini_lista_1.append(lista_mas_vendidos[-i])#El ordenamiento es desde el mas pequeño
-    """titulo = '15 Productos con mas ventas'
-    cabeza = ['id  ', 'Nombre del producto     ', 'No. Ventas']#lista de los productos sin contar los productos devueltos
-    imp_tab(titulo, cabeza, mini_lista_1)
-    imp_linea_vacia(1)"""
 
     #20 Productos mas buscados
     lista_mas_buscados = f_lista_iguales(lifestore_searches, 1)
@@ -1561,10 +1557,6 @@ while entrada:
     mini_lista_2 = []
     for i in range(1,21):
         mini_lista_2.append(lista_mas_buscados[-i])#El ordenamiento es desde el mas pequeño
-    """titulo = '20 Productos con mas busquedas'
-    cabeza = ['id  ', 'Nombre del producto     ', 'No. Busquedas']#lista de los productos sin contar los productos devueltos
-    imp_tab(titulo, cabeza, mini_lista_2)
-    imp_linea_vacia(1)"""
 
     #Organizar por categoria, 5 menos vendidos, 20 menos buscados
     categorias = f_lista_iguales(lifestore_products, 3)#Obtener una lista de las categorias, ya estan ordenados en categorias
@@ -1587,16 +1579,6 @@ while entrada:
                 break
         mini_lista = orden(mini_lista, 2)
         listas_ventas_categorias.append(mini_lista)
-    """for i in range(len(categorias)): #imprimir todas las tablas de los productos menos vendidos
-        mini_lista_3= []
-        for j in range(len(listas_ventas_categorias[i])):
-            mini_lista_3.append(listas_ventas_categorias[i][j])
-            if j >= 5:
-                break
-        titulo = "5 Productos menos vendidos de " + categorias[i][0]
-        cabeza = ['id', 'Nombre del producto          ', 'No. Ventas']
-        imp_tab(titulo, cabeza, mini_lista_3)
-        imp_linea_vacia(1)"""
 
     #5 Productos que menos se buscan por categorias
     lista_mas_buscados = orden(lista_mas_buscados, 0)#Utilizar la lista ya acomodada de las busquedas
@@ -1617,16 +1599,6 @@ while entrada:
                 break
         mini_lista = orden(mini_lista,2)
         lista_cat_menos_buscados.append(mini_lista)
-    """for i in range(len(categorias)): #imprimir todas las tablas de los productos menos vendidos
-        mini_lista_4= []
-        for j in range(len(lista_cat_menos_buscados[i])):
-            mini_lista_4.append(lista_cat_menos_buscados[i][j])
-            if j >= 5:
-                break
-        titulo = "5 Productos menos buscados de " + categorias[i][0]
-        cabeza = ['id', 'Nombre del producto          ', 'No. Busquedas']
-        imp_tab(titulo, cabeza, mini_lista_4)
-        imp_linea_vacia(1)"""
 
     #Reseñas, 20 mejores y 20 peores
     contador = 0
@@ -1684,16 +1656,6 @@ while entrada:
     mini_lista_5 = []
     for i in range(1,21):
         mini_lista_5.append(promedios[-i])
-    """titulo = "Los 20 productos mejor valorados"
-    cabeza = ['Id', 'Nombre del producto          ', 'Calificacion', 'No. Devueltos']
-    imp_tab(titulo, cabeza, mini_lista_5)"""
-    mini_lista_6 = []
-    for i in range(20):
-        mini_lista_6.append(promedios[i])
-    """titulo = "Los 20 productos peor valorados"
-    cabeza = ['Id', 'Nombre del producto          ', 'Calificacion', 'No. Devueltos']
-    imp_tab(titulo, cabeza, mini_lista_6)"""
-
 
     #Ventas mensuales
     meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septimbre', 'Octubre', 'Noviembre', 'Diciembre']
@@ -1710,10 +1672,6 @@ while entrada:
                         venta_mes += k[2]
                         break
         ventas_meses.append([meses[i], contador, venta_mes])
-    """titulo = "Ventas por meses"
-    cabeza = ['Mes            ', 'No. Ventas', 'Ganancia']
-    imp_tab(titulo, cabeza, ventas_meses)
-    imp_linea_vacia(1)"""
 
     #Ventas Anuales
     ventas_anuales = []#El formato de la lista es [Año, No ventas, Ganancias]
@@ -1734,10 +1692,7 @@ while entrada:
                         if ano == ventas_anuales[l][0]:#en la lista correspondiente al ano
                             ventas_anuales[l][1] += 1#Se agrega una venta
                             ventas_anuales[l][2] += k[2]#Se agrega el precio del producto
-    """titulo = "Ventas por años"
-    cabeza = ['Año    ', 'No. Ventas', 'Ganancia']
-    imp_tab(titulo, cabeza, ventas_anuales)
-    imp_linea_vacia(1)"""
+    
 
     #Este es el codigo para mostrar todo el reporte y las graficas
     imp_borrar()
@@ -1832,8 +1787,8 @@ while entrada:
 
     print('\t\t4.-Estrategia sugerida')
     if opciones[11]:
-        print('\n\t\t\tSe recomeinda; \n\t\t\t1.-Los 4 primeros productos de la lista 2.b sean retirados del inventario')
-        print('\t\t\t2.-Retirar los productos con 0 venjas en las listas 1.c')
+        print('\n\t\t\tSe recomienda; \n\t\t\t1.-Los 4 primeros productos de la lista 2.b sean retirados del inventario')
+        print('\t\t\t2.-Retirar los productos con 0 ventas en las listas 1.c')
         print('\t\t\t3.-Retirar todos productos con 0 busquedas en las listas 1.d')
         imp_linea_vacia(1)
     print('\t\t5.-Salir del reporte')
@@ -1894,4 +1849,6 @@ while entrada:
         opciones[10] = False
 
     else:
+        imp_borrar()
         print('\t\tOpcion no valida')
+        espera(5)
