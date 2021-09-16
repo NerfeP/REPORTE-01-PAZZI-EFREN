@@ -1656,6 +1656,9 @@ while entrada:
     mini_lista_5 = []
     for i in range(1,21):
         mini_lista_5.append(promedios[-i])
+    mini_lista_6= []
+    for i in range(20):
+        mini_lista_6.append(promedios[i])
 
     #Ventas mensuales
     meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septimbre', 'Octubre', 'Noviembre', 'Diciembre']
@@ -1692,7 +1695,7 @@ while entrada:
                         if ano == ventas_anuales[l][0]:#en la lista correspondiente al ano
                             ventas_anuales[l][1] += 1#Se agrega una venta
                             ventas_anuales[l][2] += k[2]#Se agrega el precio del producto
-    
+
 
     #Este es el codigo para mostrar todo el reporte y las graficas
     imp_borrar()
